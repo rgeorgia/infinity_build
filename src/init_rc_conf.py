@@ -45,11 +45,6 @@ def update_rc_config(rc_files_to_move, host_name):
             print(f"{item}=YES")
 
 
-def prompt_for_hostname() -> str:
-    hostname = platform.uname().node
-    return hostname
-
-
 def create_config_infinity():
     try:
         os.makedirs(CONFIG_PATH)
@@ -68,7 +63,7 @@ def main():
             for item in [item.name for item in Path("/etc/rc.d").iterdir()]:
                 rcd_file.write(f"{item}\n")
 
-    host_name = prompt_for_hostname()
+    host_name = platform.uname().node
 
     rc_files_to_move = list_example_rcd()
     copy_example_rcd(rc_files_to_move)
