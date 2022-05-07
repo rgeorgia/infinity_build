@@ -62,8 +62,6 @@ def main():
     rc_files_to_move = list_example_rcd()
     copy_example_rcd(rc_files_to_move)
 
-    update_rc_config(rc_files_to_move, host_name)
-
 
 if __name__ == "__main__":
     main()

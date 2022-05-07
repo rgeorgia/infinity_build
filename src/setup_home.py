@@ -21,11 +21,12 @@ def make_home_dirs():
 
 
 def copy_dot_files():
-    working_dir = 'workspace/InfinityDesktop/misc'
+    working_dir = "workspace/InfinityDesktop/misc"
     p = Path(Path.home().joinpath(working_dir))
-    for item in list(p.glob('dot-*')):
+    for item in list(p.glob("dot-*")):
         new_file = Path.home().joinpath(f".{item.parts[-1].split('dot-')[1]}")
-        shutil.copy(item,new_file)
+        shutil.copy(item, new_file)
+
 
 def main():
     make_home_dirs()
