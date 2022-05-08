@@ -3,7 +3,7 @@ infinity-desktop.py
 
 """
 from subprocess import Popen, PIPE
-from .config import SysCmdResult, PkginOpt, PKGIN
+from .config import SysCmdResult, PkginOpt, PKGIN, DIR_HOME_LIST
 
 
 def copy_to_rcd():
@@ -11,7 +11,7 @@ def copy_to_rcd():
 
 
 def install_packages(packages: list) -> SysCmdResult:
-    pkgs = ' '.join(packages)
+    pkgs = " ".join(packages)
     p = Popen([PKGIN, PkginOpt.INSTALL.value, pkgs], stderr=PIPE, stdout=PIPE)
     stdout, stderr = p.communicate()
 
@@ -19,7 +19,9 @@ def install_packages(packages: list) -> SysCmdResult:
 
 
 def setup_home():
-    pass
+
+    for item in DIR_HOME_LIST:
+        Path.mkdir(Path.home().joinpath(item), parents=True, exist_ok=True)
 
 
 def slim_theme():

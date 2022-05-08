@@ -62,3 +62,16 @@ DEFAULT_RC_DOT_CONF = {
     "slim": "YES",
     "xdm": "NO",
 }
+
+DIR_HOME_LIST = [
+         "Documents",
+         "Pictures/backgrounds",
+         "Downloads",
+         "Templates",
+         "Desktop",
+         "Videos",
+         "workspace",
+         "bin",
+         "nowhere",
+     ]
+
